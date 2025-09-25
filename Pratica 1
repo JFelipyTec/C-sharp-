@@ -1,0 +1,23 @@
+Console.WriteLine("Digite seu nome:");
+string nome = Console.ReadLine();
+
+int idade = 0;
+bool idadeValida = false;
+
+while (!idadeValida)
+{
+    Console.WriteLine("Digite sua idade");
+    string entrada = Console.ReadLine();
+
+    try
+    {
+        idade = int.Parse(entrada);
+        idadeValida = true;
+    }
+    catch (OverflowException)
+    {
+        Console.WriteLine("valor invalido, digite novamente");
+    }
+    Console.WriteLine("idade, nome");
+    Console.ReadLine();
+}
