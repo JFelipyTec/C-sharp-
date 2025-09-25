@@ -1,0 +1,5 @@
+Console.WriteLine("Digite seu nome:");
+string nome = Console.ReadLine();
+
+Console.WriteLine("Digite sua idade:");
+string idade = Console.ReadLine();
