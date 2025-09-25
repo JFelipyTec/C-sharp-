@@ -1,0 +1,20 @@
+//Pergunte o nome ou a idade do usuário
+Console.WriteLine("Digitar seu nome: ")// Entrada de dados 
+string nome = Console.ReadLine();//Le o que foi escrito 
+
+
+Console.WriteLine("Digite sua idade")//Entrada de dados 
+int idade = int.Parse(Console.ReadLine();//converte a string para int e declara a variavel idade do tipo inteiro e guardamos o valor
+
+
+
+if (int.TryParse(mome,out int idade))
+{
+    Console.WriteLine(idade);
+}
+else
+{
+    Console.WriteLine("Erro");
+}
+Console.WriteLine("Enter");
+Console.ReadLine();
