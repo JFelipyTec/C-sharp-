@@ -1,0 +1,100 @@
+
+﻿// QUESTÃO 1 – MÉDIA DE NOTAS
+/*
+Console.WriteLine("Digite a primeira nota:");
+double nota1 = double.Parse(Console.ReadLine());
+
+Console.WriteLine("Digite a segunda nota:");
+double nota2 = double.Parse(Console.ReadLine());
+
+double media = (nota1 + nota2) / 2;
+
+if (media >= 6)
+{
+    Console.WriteLine("Aprovado! Média = " + media);
+}
+else
+{
+    Console.WriteLine("Reprovado! Média = " + media);
+}
+*/
+
+
+// QUESTÃO 2 – CONTROLE DE ESTOQUE
+/*
+Console.WriteLine("Quantidade atual em estoque:");
+int atual = int.Parse(Console.ReadLine());
+
+Console.WriteLine("Quantidade máxima:");
+int maximo = int.Parse(Console.ReadLine());
+
+Console.WriteLine("Quantidade mínima:");
+int minimo = int.Parse(Console.ReadLine());
+
+int media = (maximo + minimo) / 2;
+
+if (atual >= media)
+{
+    Console.WriteLine("Não efetuar compra");
+}
+else
+{
+    Console.WriteLine("Efetuar compra");
+}
+*/
+
+
+// QUESTÃO 3 – FRUTEIRA
+/*
+Console.WriteLine("Kg de morangos:");
+double kgMorango = double.Parse(Console.ReadLine());
+
+Console.WriteLine("Kg de maçãs:");
+double kgMaca = double.Parse(Console.ReadLine());
+
+double precoMorango = (kgMorango <= 5) ? 2.5 : 2.2;
+double precoMaca = (kgMaca <= 5) ? 1.8 : 1.5;
+
+double total = (kgMorango * precoMorango) + (kgMaca * precoMaca);
+double peso = kgMorango + kgMaca;
+
+if (peso > 8 || total > 25)
+{
+    total = total - (total * 0.10);
+}
+
+Console.WriteLine("Valor a pagar: R$ " + total);
+*/
+
+
+// QUESTÃO 4 – DESCONTO POR QUANTIDADE
+/*
+Console.WriteLine("Nome do produto:");
+string produto = Console.ReadLine();
+
+Console.WriteLine("Quantidade:");
+int qtd = int.Parse(Console.ReadLine());
+
+Console.WriteLine("Preço unitário:");
+double preco = double.Parse(Console.ReadLine());
+
+double total = qtd * preco;
+double desconto = 0;
+
+if (qtd <= 5)
+{
+    desconto = total * 0.02;
+}
+else if (qtd <= 10)
+{
+    desconto = total * 0.03;
+}
+else
+{
+    desconto = total * 0.05;
+}
+
+double pagar = total - desconto;
+
+Console.WriteLine("Produto: " + produto);
+Console.WriteLine("Total sem desconto: " + total);
