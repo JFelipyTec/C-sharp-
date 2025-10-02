@@ -1,0 +1,131 @@
+using System;
+using System.Windows.Forms;
+
+class Program
+{
+    [STAThread]
+    static void Main()
+    {
+        int operacoesValidas = 0;
+        int operacoesComErro = 0;
+        bool continuar = true;
+
+        // Exibir data e hora atuais
+        Console.WriteLine("Data e hora: " + DateTime.Now);
+        Console.WriteLine("Bem vindo a calculadora!");
+
+        while (continuar)
+        {
+            // Menu de opcoes
+            Console.WriteLine("\nEscolha a operacao:");
+            Console.WriteLine("1 - Soma (+)");
+            Console.WriteLine("2 - Subtracao (-)");
+            Console.WriteLine("3 - Multiplicacao (x)");
+            Console.WriteLine("4 - Divisao (/)");
+            Console.WriteLine("5 - Modulo (%)");
+            Console.WriteLine("6 - Sair");
+
+            Console.Write("Digite a opcao (1 a 6): ");
+            string opcao = Console.ReadLine();
+
+            if (opcao == "6")
+            {
+                break;
+            }
+
+            // Leitura dos numeros
+            double numero1 = 0, numero2 = 0;
+            bool valido1 = false, valido2 = false;
+
+            Console.Write("Digite o primeiro numero: ");
+            valido1 = double.TryParse(Console.ReadLine(), out numero1);
+            if (!valido1)
+            {
+                Console.WriteLine("Numero invalido!");
+                operacoesComErro++;
+                continue;
+            }
+
+            Console.Write("Digite o segundo numero: ");
+            valido2 = double.TryParse(Console.ReadLine(), out numero2);
+            if (!valido2)
+            {
+                Console.WriteLine("Numero invalido!");
+                operacoesComErro++;
+                continue;
+            }
+
+            double resultado = 0;
+            bool operacaoValida = true;
+
+            switch (opcao)
+            {
+                case "1":
+                    resultado = numero1 + numero2;
+                    break;
+                case "2":
+                    resultado = numero1 - numero2;
+                    break;
+                case "3":
+                    resultado = numero1 * numero2;
+                    break;
+                case "4":
+                    if (numero2 == 0)
+                    {
+                        Console.WriteLine("Erro: nao pode dividir por zero!");
+                        operacaoValida = false;
+                        operacoesComErro++;
+                    }
+                    else
+                    {
+                        resultado = numero1 / numero2;
+                    }
+                    break;
+                case "5":
+                    if (numero2 == 0)
+                    {
+                        Console.WriteLine("Erro: modulo com zero nao pode!");
+                        operacaoValida = false;
+                        operacoesComErro++;
+                    }
+                    else
+                    {
+                        resultado = numero1 % numero2;
+                    }
+                    break;
+                default:
+                    Console.WriteLine("Opcao invalida!");
+                    operacaoValida = false;
+                    operacoesComErro++;
+                    break;
+            }
+
+            if (operacaoValida)
+            {
+                operacoesValidas++;
+                Console.WriteLine("Resultado: " + resultado.ToString("F2"));
+            }
+
+            // Pergunta se quer continuar
+            Console.Write("\nQuer continuar? (sim/nao): ");
+            string resposta = Console.ReadLine();
+            resposta = string.IsNullOrWhiteSpace(resposta) ? "nao" : resposta.ToLower();
+
+            if (resposta != "sim")
+            {
+                continuar = false;
+            }
+        }
+
+        // Mensagem final
+        string mensagemFinal = "Total operacoes validas: " + operacoesValidas + "\n" +
+                               "Total erros: " + operacoesComErro + "\n" +
+                               "Obrigado por usar a calculadora!";
+
+        Console.Clear();
+        Console.WriteLine(mensagemFinal);
+
+        MessageBox.Show(mensagemFinal, "Resumo Final");
+    }
+}
+
